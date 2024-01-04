@@ -19,8 +19,12 @@ Access the deployed project at [Speer-frontend](https://speertechnologies-fronte
 By simply clicking on any call entry, users can view in-depth details of the call, including the duration, caller information, and call status. This functionality provides a thorough insight into call activities, making it an indispensable tool for effective call management.
 
 ## Screenshots
-
+Desktop View for Call Details 
 ![CallDetails-Desktop](src/assets/detailsDesktop.png)
+
+
+Mobile View for Call Details
+![CallDetails-Mobile](src/assets/detailsMob.png)
 
 
 ## Technologies
