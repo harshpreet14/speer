@@ -43,6 +43,7 @@ const CallDetails = () =>{
         <div className="w-full h-[75px] bg-gray-100 border-b">
       <div className="md:max-w-[800px] max-w-[400px] m-auto w-full h-full flex-col justify-center text-center items-center md:px-0 px-4">
         <img src={contact} className="w-20 h-20"/>
+        <p className="text-center">{data.to}</p>
       </div>
       </div>
     )

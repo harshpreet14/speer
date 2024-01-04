@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import {missed, answered, voice, outgoing} from '../assets';
 import Loading from './Loading';
 const BASE_URL = "https://cerulean-marlin-wig.cyclic.app/";
-
+import { Link } from 'react-router-dom';
 
 const AllCalls = () =>{
     const [calls, setCalls] = useState([]);
@@ -76,6 +76,8 @@ const Call = ({ data }) =>{
     };
 
     return(
+        <Link to={`/activity/${data.id}`} >
+
         <div className="flex flex-col w-full items-center text-center">
              <p className="flex flex-row justify-between font-thin text-sm text-center m-1.5">
         ---{new Date(data.created_at).toLocaleString('en-IN', {
@@ -108,6 +110,8 @@ const Call = ({ data }) =>{
 
         </div>
        </div>
+      </Link>
+        
     )
 }
 

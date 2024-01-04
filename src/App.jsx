@@ -18,7 +18,7 @@ function App() {
         <Route path='/' element={<AllCalls/>} />
         <Route path='/inbox' element ={<Inbox/>}/>
         <Route path='/archived' element ={<Archived/>}/>
-        <Route path='/archived/:id' element={<CallDetails/>}/>
+        <Route path='/activity/:id' element={<CallDetails/>}/>
       </Routes>
       <Footer/>
       </div>
