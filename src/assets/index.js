@@ -10,9 +10,14 @@ import voice from './voice.svg';
 import recording from './recording.svg';
 import settings from './settings.svg';
 import contact from './contact.svg';
-import dialpad from './dialpad.svg'
+import dialpad from './dialpad.svg';
+import message from './message.svg';
+import video from './video.svg';
+import callnow from './callnow.svg';
+import contactblue from './contactblue.svg';
+import outgreen from './outgreen.svg'
 export {
     hamburgerMenu,
     close,
-   logo, archive, incoming, outgoing, answered, missed, voice, recording, dialpad, settings, contact
+   logo, archive, incoming, outgoing, answered, missed, voice, recording, dialpad, settings, contact, message, video, callnow, contactblue, outgreen
 };
