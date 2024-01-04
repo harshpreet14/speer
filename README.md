@@ -1,37 +1,36 @@
-# Call Management App
-Here is the deployed link -  [https://speertechnologies-frontend.vercel.app/](#).
-## Overview
-This ReactJS application is designed to manage call activities. It features an activity feed, detailed call view, archiving functionality, and more. The app focuses on providing a user-friendly interface with efficient navigation and interaction for managing call records.
+# Speer-AirCall
+A call management app for Aircall.
 
-## Features
-- **Activity Feed:** Displays a list of all call activities.
-- **Activity Detail:** Shows detailed information for each call.
-- **Archiving:** Users can archive and unarchive calls. Archived calls are moved to a separate tab and don't appear in the main activity feed.
-- **Bulk Actions:** Includes functionality to archive all calls and unarchive all calls in respective tabs.
+## Demo link:
+Access the deployed project at [Speer-frontend](https://speertechnologies-frontend.vercel.app/)
 
-## Design and Best Practices
-- Emphasis on UI/UX with smooth transitions and intuitive layouts.
-- Implements best React practices for efficient and maintainable code.
-- Responsive design ensuring accessibility across various devices.
+## Table of Content:
 
-## Installation
-This project uses yarn for dependency management. To set up the project:
+- [About The App](#about-the-app)
+- [Screenshots](#screenshots)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Approach](#approach)
+- [Status](#status)
 
-## API Integration
-The application integrates with a backend API for call data management.
+## About The App
+[Speer-Aircall] offers a comprehensive solution to efficiently handle and organize call records. It features a user-friendly interface that allows users to seamlessly navigate through different sections, including the complete call list, the inbox, and archived calls. 
 
-- **API Base URL:** `https://cerulean-marlin-wig.cyclic.app/`
+By simply clicking on any call entry, users can view in-depth details of the call, including the duration, caller information, and call status. This functionality provides a thorough insight into call activities, making it an indispensable tool for effective call management.
 
-### Endpoints
-- `GET /activities`: Retrieve all call activities.
-- `GET /activities/:call_id`: Retrieve details for a specific call.
-- `PATCH /activities/:call_id`: Update the archive status of a call.
-- `PATCH /reset`: Reset all calls to their initial state.
+## Screenshots
 
-## Usage
-- Navigate through the tabs to view all calls or archived calls.
-- Click on a call entry to view its details.
-- Use the archive and unarchive buttons to manage call records.
+`![Writing](https://unsplash.com/photos/VBPzRgd7gfc)`
 
-## Deployment
-The app is deployed at [https://speertechnologies-frontend.vercel.app/](#). Visit the link to interact with the live version.
+
+## Technologies
+I used `React` for the frontend, with additional libraries - `recoil` for state management, `react-router-dom` for routing, and `TaiwindCSS` for styling.
+
+## Setup
+- Clone the repository
+- run `npm install`
+- run `npm run dev`
+
+## Approach
+I adopted the `BEM` naming style for my css class names and ...
+
