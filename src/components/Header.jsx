@@ -1,12 +1,13 @@
 import { useRecoilState } from "recoil";
 import { useState } from "react";
-import toggleState from "../state";
+import selectedStateAtom from '../state';
 import { archive, incoming, hamburgerMenu, close } from "../assets";
 import { Link } from "react-router-dom";
 const Header = () =>{
   
     const [toggle, setToggle] = useState(false);
     const handleClick = () => setToggle(!toggle);
+    const [selectedState, setSelectedState] = useRecoilState(selectedStateAtom)
 
     return(
       <div className="w-full h-[75px] bg-gray-100 border-b">
@@ -27,14 +28,17 @@ const Header = () =>{
         </g>
       </svg>
         <div className=" hidden md:flex items-center">
-        <Link to="/inbox" className="hover:text-black hover:font-semibold flex justify-between items-center bg-transparent px-6 gap-2">
+        <Link to="/inbox" className={`hover:text-black  flex justify-between items-center bg-transparent px-6 gap-2 
+                ${selectedState === 'Inbox' ? 'text-red-500 font-bold' : ''}`} onClick={() => setSelectedState('Inbox')}>
         <img className="w-5" src={incoming} alt="Inbox" />
          Inbox
         </Link>
-        <Link to="/" className="hover:text-black hover:font-semibold">
+        <Link to="/" className={`hover:text-black  flex justify-between items-center bg-transparent px-6 gap-2 
+                ${selectedState === 'AllCalls' ? 'text-red-500 font-bold' : ''}`} onClick={() => setSelectedState('AllCalls')}>
         All Calls
         </Link>
-        <Link to="/archived" className="hover:text-black hover:font-semibold flex justify-between items-center bg-transparent px-6 gap-2">
+        <Link to="/archived" className={`hover:text-black flex justify-between items-center bg-transparent px-6 gap-2 
+                ${selectedState === 'Archived' ? 'text-red-500 font-bold' : ''}`} onClick={() => setSelectedState('Archived')}>
         <img className="w-5" src={archive} alt="Archived" />
         Archived
         </Link>

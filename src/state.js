@@ -1,8 +1,8 @@
 import {atom} from 'recoil';
 
-const toggleState = atom({
-  key: 'toggle',
+const selectedStateAtom = atom({
+  key: 'selectedState',
   default: 'Inbox'
 });
 
-export default toggleState
+export default selectedStateAtom;
