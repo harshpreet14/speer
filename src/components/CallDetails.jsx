@@ -3,8 +3,7 @@ import Loading from "./Loading";
 import { useState, useEffect } from "react";
 const BASE_URL = "https://cerulean-marlin-wig.cyclic.app/";
 import { missed, message, video, outgoing, archive, contact, callnow, outgreen } from "../assets";
-
-
+import { Link } from "react-router-dom";
 export const CallStructure = {
     transcript: ' ',
     updated_at: ' ',
@@ -126,12 +125,15 @@ const CallDetails = () =>{
             </div>
         </div>
         { !call.is_archived ? 
-        <div className="flex flex-col items-center cursor-pointer focus:outline-none focus:ring focus:border-green-300">
+        <Link to='/inbox'>
+            <div className="flex flex-col items-center cursor-pointer focus:outline-none focus:ring focus:border-green-300">
         <img src={archive} alt="Archive" className="w-5 mb-1" />
-        <p className="text-xs font-semibold text-green-600 text-center rounded-full px-4 py-1 bg-green-50 hover:text-green-700 hover:font-bold active:text-green-800">
+        <p className="text-xs font-semibold text-green-600 text-center rounded-full px-4 py-1 bg-green-50 hover:text-green-700 hover:font-bold active:text-green-800" onClick={archiveCall}>
             Archive Now
         </p>
-        </div> : null}
+        </div> 
+        </Link>
+        : null}
         
       </div>
       </div>

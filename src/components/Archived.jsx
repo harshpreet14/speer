@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 const BASE_URL = "https://cerulean-marlin-wig.cyclic.app/";
-import {missed, answered, voice, outgreen} from '../assets';
+import {missed, answered, voice, outgreen, archive} from '../assets';
 import Loading from './Loading';
-
+import { Link } from 'react-router-dom';
 const Archived = () =>{
     const [calls, setCalls] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -20,6 +20,27 @@ const Archived = () =>{
         setIsLoading(false);
     };
 
+    const unarchiveAllCalls = async () => {
+        setIsLoading(true);
+        try {
+            const response = await fetch(`${BASE_URL}/reset`, {
+                method: 'PATCH', // Using PATCH method as per the API specification
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                // No body is needed if the API doesn't require it for this endpoint
+            });
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            await fetchCalls(); // Fetch the updated list of calls after resetting
+        } catch (error) {
+            console.error("Error resetting calls to initial state:", error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+    
 
     // useEffect to call fetchCalls on component mount
     useEffect(() => {
@@ -33,6 +54,13 @@ const Archived = () =>{
     return(
         <div className="w-full p-5  border-b">
             <div className="md:max-w-[800px] max-w-[400px] m-auto w-full flex flex-col justify-between items-center md:px-0 px-4">
+            <Link to='/inbox'>
+            <div className="flex flex-col items-center cursor-pointer focus:outline-none focus:ring focus:border-green-300 mb-5">
+        <p className="text-xs font-semibold text-green-600 text-center rounded-full px-4 py-1 bg-green-50 hover:text-green-700 hover:font-bold active:text-green-800" onClick={unarchiveAllCalls}>
+            Unarchive All
+        </p>
+        </div> 
+        </Link>
             {calls.filter(call => call.is_archived).reverse().map((call) => (
                 <Call key={call.id} data={call} /> // Replace Call with your actual Call component and pass necessary data
             ))}
@@ -94,7 +122,8 @@ const Call = ({ data }) =>{
     
 
     return(
-        <div className="flex flex-row w-full justify-between border-b p-5 mb-3 hover:bg-gray-100 hover:shadow-lg  transition-duration-200 ease-in-out transform hover:-translate-y-1 cursor-pointer hover:scale-110 transition-transform">
+        <Link to={`/activity/${data.id}`} className='w-full' >
+            <div className="flex flex-row w-full justify-between border-b p-5 mb-3 hover:bg-gray-100 hover:shadow-lg  transition-duration-200 ease-in-out transform hover:-translate-y-1 cursor-pointer hover:scale-110 transition-transform">
             <div className="flex flex-row justify-between gap-2">
             {renderCallIcon(data.call_type, data.direction)}
             <p className="text-gray-400 font-semibold text-sm">
@@ -112,6 +141,8 @@ const Call = ({ data }) =>{
             <p className="text-gray-400 font-thin text-sm"> {formatTime(data.created_at)}</p>
             </div>
         </div>
+        </Link>
+        
     )
 }
 

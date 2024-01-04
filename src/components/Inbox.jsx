@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import {missed, answered, voice, outgreen} from '../assets';
 import Loading from './Loading';
 const BASE_URL = "https://cerulean-marlin-wig.cyclic.app/";
-
+import { Link } from 'react-router-dom';
 
 const Inbox = () =>{
     const [calls, setCalls] = useState([]);
@@ -99,7 +99,8 @@ const Call = ({ data }) =>{
     };
 
     return(
-        <div className="flex flex-row w-full justify-between border-b p-5 mb-3 hover:bg-gray-100 hover:shadow-lg  transition-duration-200 ease-in-out transform hover:-translate-y-1 cursor-pointer hover:scale-110 transition-transform">
+        <Link to={`/activity/${data.id}`} className='w-full' >
+            <div className="flex flex-row w-full justify-between border-b p-5 mb-3 hover:bg-gray-100 hover:shadow-lg  transition-duration-200 ease-in-out transform hover:-translate-y-1 cursor-pointer hover:scale-110 transition-transform">
             <div className="flex flex-row justify-between gap-2">
             {renderCallIcon(data.call_type)}
             <p className="text-gray-400 font-semibold text-sm">
@@ -117,6 +118,8 @@ const Call = ({ data }) =>{
             <p className="text-gray-400 font-thin text-sm"> {formatTime(data.created_at)}</p>
             </div>
         </div>
+        </Link>
+        
     )
 }
 
