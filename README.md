@@ -20,7 +20,7 @@ By simply clicking on any call entry, users can view in-depth details of the cal
 
 ## Screenshots
 
-`![Writing](https://unsplash.com/photos/VBPzRgd7gfc)`
+![CallDetails-Desktop](src/assets/Screenshot 2024-01-04 222453.png)
 
 
 ## Technologies
