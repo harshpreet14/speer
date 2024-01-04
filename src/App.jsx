@@ -5,6 +5,7 @@ import { RecoilRoot, useRecoilValue } from 'recoil';
 import Inbox from './components/Inbox';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Archived from './components/Archived';
+import CallDetails from './components/CallDetails';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Route path='/' element={<AllCalls/>} />
         <Route path='/inbox' element ={<Inbox/>}/>
         <Route path='/archived' element ={<Archived/>}/>
+        <Route path='/archived/:id' element={<CallDetails/>}/>
       </Routes>
       <Footer/>
       </div>
