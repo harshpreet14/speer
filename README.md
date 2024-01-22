@@ -39,5 +39,5 @@ I used `React` for the frontend, with additional libraries - `recoil` for state 
 - run `npm run dev`
 
 ## Approach
-I adopted the `BEM` naming style for my css class names and ...
+I first made the UI using Aircall's colors and then added funtionalities. 
 
