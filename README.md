@@ -1,5 +1,5 @@
 # Speer-AirCall
-A call management app for Aircall using React and TailwindCSS.
+A call management app for Aircall using React and TailwindCSS, and Recoil.
 
 ## Demo link:
 Access the deployed project at [Speer-frontend](https://speertechnologies-frontend.vercel.app/)
